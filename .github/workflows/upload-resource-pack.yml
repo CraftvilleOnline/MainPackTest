@@ -20,7 +20,6 @@ jobs:
       - name: Zip contents of repository
         run: |
           zip -r craftville.zip .
-          mv craftville.zip $GITHUB_WORKSPACE
 
       - name: Upload resource pack to https://mc-packs.net/
         id: upload
