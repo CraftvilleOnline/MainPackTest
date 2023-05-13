@@ -1,4 +1,4 @@
-name: Upload resource pack to mc-packs.net
+name: Squash & release
 
 on:
   push:
