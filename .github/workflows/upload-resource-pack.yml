@@ -1,0 +1,45 @@
+name: Upload resource pack to mc-packs.net
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  upload-resource-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install zip
+        run: sudo apt-get update && sudo apt-get -y install zip
+
+      - name: Zip contents of repository
+        run: |
+          zip -r craftville.zip .
+          mv craftville.zip $GITHUB_WORKSPACE
+
+      - name: Upload resource pack to https://mc-packs.net/
+        id: upload
+        run: |
+          curl -X POST -F "file=@craftville.zip" https://mc-packs.net/
+        shell: bash
+
+      - name: Get resource pack URL
+        run: |
+          echo "::set-output name=url::$(echo ${{steps.upload.outputs.stdout}} | sed 's/^.*download/https:\/\/mc-packs.net\/download/')"
+        id: get-url
+        shell: bash
+
+      - name: Send Discord webhook
+        if: always()
+        uses: distributhor/discord-webhook-action@v2.0.0
+        with:
+          url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: "Resource pack uploaded! URL: ${{ steps.get-url.outputs.url }}"
+          username: Resource pack
+          avatar_url: https://github.com/github.png
