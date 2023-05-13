@@ -2,14 +2,13 @@ name: Upload resource pack to mc-packs.net
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
   upload-resource-pack:
+    if: "!contains(github.event.commits[0].message, '[ci-skip]')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -36,10 +35,8 @@ jobs:
         shell: bash
 
       - name: Send Discord webhook
-        if: always()
-        uses: distributhor/discord-webhook-action@v2.0.0
+        uses: MineBartekSA/discord-webhook@v2.1
         with:
-          url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "Resource pack uploaded! URL: ${{ steps.get-url.outputs.url }}"
-          username: Resource pack
-          avatar_url: https://github.com/github.png
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: 'Resource pack uploaded: ${{ steps.get-url.outputs.url }}'
+          username: 'Resource pack'
