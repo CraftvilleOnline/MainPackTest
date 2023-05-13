@@ -30,11 +30,11 @@ jobs:
       - name: Rename pack file
         run: mv pack.zip Craftville-v${{ github.run_number }}.zip
 
-      - name: Upload to GitHub resources
-        uses: actions/upload-artifact@v2
+      - name: Tag and create release
+        uses: softprops/action-gh-release@v1
         with:
-          name: Craftville-v${{ github.run_number }}.zip
-          path: Craftville-v${{ github.run_number }}.zip
+          tag_name: ResourcePack-v${{ github.run_number }}
+          files: Craftville-v${{ github.run_number }}.zip
 
       - name: Send Discord webhook
         uses: MineBartekSA/discord-webhook@v2.1
