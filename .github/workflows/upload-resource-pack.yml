@@ -17,14 +17,24 @@ jobs:
       - name: Install zip
         run: sudo apt-get update && sudo apt-get -y install zip
 
-      - name: Zip contents of repository
-        run: |
-          zip -r craftville.zip .
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v3
+        with:
+          validate_pack_metadata_file: false
+          automatic_minecraft_quirks_detection: false
+          automatic_asset_types_mask_detection: false
+          
+      - name: Download optimized pack
+        uses: actions/download-artifact@v3
+        with:
+          name: Optimized pack
+      - name: Rename pack file
+        run: mv pack.zip Craftville-v${{ github.run_number }}.zip
 
       - name: Upload resource pack to https://mc-packs.net/
         id: upload
         run: |
-          curl -X POST -F "file=@craftville.zip" https://mc-packs.net/
+          curl -X POST -F "file=@Craftville-v${{ github.run_number }}.zip" https://mc-packs.net
         shell: bash
 
       - name: Get resource pack URL
