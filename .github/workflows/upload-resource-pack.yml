@@ -40,5 +40,5 @@ jobs:
         uses: MineBartekSA/discord-webhook@v2.1
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: 'The new resource pack is now available on GitHub resources: https://github.com/${{ github.repository }}/releases/download/${{ github.sha }}/Craftville-v${{ github.run_number }}.zip'
+          content: 'The new resource pack is now available on GitHub resources: https://github.com/${{ github.repository }}/releases/download/ResourcePack-v${{ github.run_number }}/Craftville-v${{ github.run_number }}.zip'
           username: 'Resource pack'
