@@ -22,14 +22,19 @@ jobs:
           validate_pack_metadata_file: false
           automatic_minecraft_quirks_detection: false
           automatic_asset_types_mask_detection: false
-          
+
       - name: Download optimized pack
         uses: actions/download-artifact@v3
         with:
           name: Optimized pack
+          
       - name: Rename pack file
         run: mv pack.zip Craftville-v${{ github.run_number }}.zip
 
+      - name: Get commit message
+        id: commit_message
+        run: echo "::set-output name=message::${{ github.event.commits[0].message }}"
+          
       - name: Tag and create release
         uses: softprops/action-gh-release@v1
         with:
@@ -40,5 +45,5 @@ jobs:
         uses: MineBartekSA/discord-webhook@v2.1
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: 'The new resource pack is now available on GitHub resources: https://github.com/${{ github.repository }}/releases/download/ResourcePack-v${{ github.run_number }}/Craftville-v${{ github.run_number }}.zip'
+          content: 'The new resource pack is now available on GitHub resources: https://github.com/${{ github.repository }}/releases/download/ResourcePack-v${{ github.run_number }}/Craftville-v${{ github.run_number }}.zip\nChanges: ${{ steps.commit_message.outputs.message }}'
           username: 'Resource pack'
