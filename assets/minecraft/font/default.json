@@ -4,13 +4,17 @@
             "type": "bitmap",
             "file": "minecraft:font/ascii.png",
             "ascent": 7,
-            "skip": [" "]
+            "skip": [
+                " "
+            ]
         },
         {
             "type": "bitmap",
             "file": "minecraft:font/nonlatin_european.png",
             "ascent": 7,
-            "skip": [" "]
+            "skip": [
+                " "
+            ]
         },
         {
             "file": "minecraft:custom/icons/whitespace.png",
@@ -2352,18 +2356,77 @@
                 ""
             ]
         },
-        
-		{"type": "bitmap","file": "minecraft:custom/icons/space.png","ascent": -32768,"height": -3,"chars": ["⿎"]},
-
-        {"type": "bitmap","file": "minecraft:custom/logo.png","ascent": 26, "height": 60,"chars": ["⿌"]},
-        {"type": "bitmap","file": "minecraft:custom/logo_full.png","ascent": 16, "height": 60,"chars": ["җ"]},
-
-        {"type": "bitmap","file": "minecraft:custom/badge/badge_admin.png", "ascent": 6, "height": 6, "chars": ["\uB001"]},
-
-        {"type": "bitmap","file": "minecraft:custom/icons/speech_bubble.png", "ascent": 8, "height": 10, "chars": ["\uE008"]},
-        {"type": "bitmap","file": "minecraft:custom/icons/wallet.png", "ascent": 11, "height": 14, "chars": ["\uE009"]},
-        {"type": "bitmap","file": "minecraft:custom/icons/magma.png", "ascent": 10, "height": 12, "chars": ["\uE010"]},
-        {"type": "bitmap","file": "minecraft:custom/icons/firework.png", "ascent": 11, "height": 14, "chars": ["\uE011"]},
-        {"type": "bitmap","file": "minecraft:custom/icons/heart.png", "ascent": 9, "height": 11, "chars": ["\uE012"]}    
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/space.png",
+            "ascent": -32768,
+            "height": -3,
+            "chars": [
+                "⿎"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/logo.png",
+            "ascent": 26,
+            "height": 60,
+            "chars": [
+                "⿌"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/logo_full.png",
+            "ascent": 16,
+            "height": 60,
+            "chars": [
+                "җ"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/speech_bubble.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                ""
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/wallet.png",
+            "ascent": 11,
+            "height": 14,
+            "chars": [
+                ""
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/magma.png",
+            "ascent": 10,
+            "height": 12,
+            "chars": [
+                ""
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/firework.png",
+            "ascent": 11,
+            "height": 14,
+            "chars": [
+                ""
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "minecraft:custom/icons/heart.png",
+            "ascent": 9,
+            "height": 11,
+            "chars": [
+                ""
+            ]
+        }
     ]
 }
