@@ -8,7 +8,13 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "custom/weapons/guns/pistol"
+            "model": "custom/weapons/guns/glock/glock"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "custom/weapons/guns/glock/glock_primed"
         }
     ]
 }

@@ -1,0 +1,16 @@
+{
+	"credit": "Made by Esmaybe with Blockbench",
+	"parent": "custom/weapons/guns/glock/glock",
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [0, 0, 0],
+			"translation": [-8.97, 2.78, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 0, 0],
+			"translation": [-8.97, 2.78, 0],
+			"scale": [0.3, 0.3, 0.3]
+		}
+	}
+}
